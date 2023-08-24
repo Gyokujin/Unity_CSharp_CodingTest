@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test47 : MonoBehaviour
+{
+    // 연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
+    // 12 ⊕ 3 = 123   3 ⊕ 12 = 312
+    // 양의 정수 a와 b가 주어졌을 때, a ⊕ b와 2 * a* b 중 더 큰 값을 return하는 solution 함수를 완성해 주세요. 단, a ⊕ b와 2 * a* b가 같으면 a ⊕ b를 return 합니다.
+
+    void Start()
+    {
+        Solution(2, 91);
+        Solution(91, 2);
+        Solution(46, 4);
+    }
+
+    int Solution(int a, int b)
+    {
+        // 두 정수를 문자열로 변환하여 문자를 합친 후에 다시 int 변환을 한다.
+        string word1 = a.ToString();
+        string word2 = b.ToString();
+
+        int num1 = (int.Parse)(word1 + word2);
+        int num2 = 2 * a * b;
+
+        int correct = num1 < num2 ? num2 : num1;
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
