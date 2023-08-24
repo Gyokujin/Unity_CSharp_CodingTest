@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam8 : MonoBehaviour
+{
+    // 2x2 크기의 2차원 배열 2개를 만들어 정수를 저장한다. 각 배열을 행렬이라 생각하고 행렬의 합과 곱을 계산한다.
+
+    int[,] numbers1 = { { 3, 5 }, { 4, 8 } };
+    int[,] numbers2 = { { 2, 6 }, { 5, 10 } };
+
+    void Start()
+    {
+        Solution(numbers1, numbers2);
+    }
+
+    void Solution(int[,] num1, int[,] num2)
+    {
+        // 행렬의 합
+        int[,] addNum = new int[2, 2]; // 합을 모아두는 2차원 배열
+
+        addNum[0, 0] = num1[0, 0] + num2[0, 0];
+        Debug.Log(addNum[0, 0]);
+
+        addNum[0, 1] = num1[0, 1] + num2[0, 1];
+        Debug.Log(addNum[0, 1]);
+
+        addNum[1, 0] = num1[1, 0] + num2[1, 0];
+        Debug.Log(addNum[1, 0]);
+
+        addNum[1, 1] = num1[1, 1] + num2[1, 1];
+        Debug.Log(addNum[1, 1]);
+
+        // 행렬의 곱
+        int[,] multiNum = new int[2, 2]; // 곱을 모아두는 2차원 배열
+
+        multiNum[0, 0] = num1[0, 0] * num2[0, 0] + num1[0, 1] * num2[1, 0];
+        Debug.Log(multiNum[0, 0]);
+
+        multiNum[0, 1] = num1[0, 0] * num2[0, 1] + num1[0, 1] * num2[1, 1];
+        Debug.Log(multiNum[0, 1]);
+
+        multiNum[1, 0] = num1[1, 0] * num2[0, 0] + num1[1, 1] * num2[1, 0];
+        Debug.Log(multiNum[1, 0]);
+
+        multiNum[1, 1] = num1[1, 0] * num2[0, 1] + num1[1, 1] * num2[1, 1];
+        Debug.Log(multiNum[1, 1]);
+    }
+}
