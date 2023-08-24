@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test39 : MonoBehaviour
+{
+    // 자연수 n이 입력으로 주어졌을 때 만약 n이 짝수이면 "n is even"을, 홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
+
+    void Start()
+    {
+        Solution(14);
+        Solution(33);
+        Solution(28);
+    }
+
+    string Solution(int n)
+    {
+        string word = n % 2 == 0 ? "n is even" : "n is odd";
+
+        Debug.Log(word);
+        return word;
+    }
+}
