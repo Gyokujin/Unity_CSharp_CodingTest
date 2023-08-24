@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test42 : MonoBehaviour
+{
+    // 두 개의 문자열 str1, str2가 공백으로 구분되어 입력으로 주어집니다. 입출력 예와 같이 str1과 str2을 이어서 출력하는 코드를 작성해 보세요.
+    // apple Pen => applePen
+    // Hello World! => HelloWorld!
+
+    void Start()
+    {
+        Solution("Straight Flush", "Full House");
+    }
+
+    void Solution(string word1, string word2)
+    {
+        string word3 = "";
+        string word4 = "";
+
+        for (int i = 0; i < word1.Length; i++)
+        {
+            if (!(word1[i].ToString() == " "))
+            {
+                word3 += word1[i];
+            }
+        }
+
+        for (int i = 0; i < word2.Length; i++)
+        {
+            if (!(word2[i].ToString() == " "))
+            {
+                word4 += word2[i];
+            }
+        }
+
+        Debug.Log(word3);
+        Debug.Log(word4);
+    }
+}
