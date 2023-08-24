@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam3 : MonoBehaviour
+{
+    // 크기 10의 정수 배열을 만들고, 원하는 수를 넣어 초기화한다. 그 배열에 저장된 수의 순서를 뒤집는다.
+    int[] numbers = new int[10];
+
+    void Start()
+    {
+        numbers = new int[] { 8, 6, 7, 3, 15, 71, 6, 41, 98, 19 };
+        Solution(numbers);
+    }
+
+    int[] Solution(int[] correct)
+    {
+        int[] vowel = new int[10];
+
+        for (int i = 0; i < 10; i++) // vowel 배열에 임시 저장한다.
+        {
+            vowel[i] = correct[i];
+        }
+
+        for (int j = 0; j < 10; j++) // vowel에 임시 저장한 배열을 correct 배열에 역순으로 하나씩 대입한다.
+        {
+            correct[j] = vowel[9 - j];
+            Debug.Log(correct[j]);
+        }
+
+        return vowel;
+    }
+}
