@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test35 : MonoBehaviour
+{
+    // 문자열 str과 정수 n이 주어집니다. str이 n번 반복된 문자열을 만들어 출력하는 코드를 작성해 보세요
+
+    string str = "str";
+    int n = 6;
+
+    void Start()
+    {
+        Solution();
+    }
+
+    string Solution()
+    {
+        string correct = "";
+
+        for (int i = 0; i < n; i++)
+        {
+            correct += str;
+        }
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
