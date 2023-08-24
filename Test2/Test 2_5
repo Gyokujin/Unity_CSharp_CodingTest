@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test4 : MonoBehaviour
+{
+    // 정수 num1과 num2가 매개변수로 주어질 때, num1을 num2로 나눈 값에 1,000을 곱한 후 정수 부분을 return 하도록 soltuion 함수를 완성해주세요.
+
+    void Awake()
+    {
+        solution(3, 2);
+        solution(7, 3);
+        solution(1, 16);
+    }
+
+    int solution(int num1, int num2)
+    {
+        float fNum1 = num1;
+        float fNum2 = num2;
+
+        int answer = 0;
+        float fAnswer = answer;
+
+        fAnswer = fNum1 / fNum2 * 1000;
+        answer = (int)fAnswer;
+
+        Debug.Log(answer);
+        return answer;
+    }
+}
