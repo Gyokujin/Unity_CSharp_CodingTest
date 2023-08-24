@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test33 : MonoBehaviour
+{
+    // 문자열 str이 주어질 때, str을 출력하는 코드를 작성해 보세요.
+
+    void Start()
+    {
+        Solution("Slow");
+        Solution("And");
+        Solution("Start");
+    }
+
+    void Solution(string word)
+    {
+        string str = word;
+        Debug.Log(str);
+    }
+}
