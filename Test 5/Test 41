@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test30 : MonoBehaviour
+{
+    // 다음과 같이 출력하는 함수를 완성해보세요.
+    // ☆☆☆☆★☆☆☆☆
+    // ☆☆☆★★★☆☆☆
+    // ☆☆★★★★★☆☆
+    // ☆★★★★★★★☆
+    // ★★★★★★★★★
+
+    void Start()
+    {
+        for (int y = 0; y < 5; y++)
+        {
+            string sequence = "";
+
+            for (int x = 0; x < 4 - y; x++)
+            {
+                sequence += "☆";
+            }
+            for (int x = 0; x <= y; x++)
+            {
+                sequence += "★";
+            }
+            for (int x = 0; x < y; x++)
+            {
+                sequence += "★";
+            }
+            for (int x = 0; x < 4 - y; x++)
+            {
+                sequence += "☆";
+            }
+
+            print(sequence);
+        }
+    }
+}
