@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam7 : MonoBehaviour
+{
+    // 서로 다른 뜻을 가진 [한국어단어:영단어]의 Dictionary를 만들어 5개의 데이터를 넣는다.
+    // 그 Dictionary를 [영단어:한국어단어]의 Dictionary로 바꾼다.
+
+    Dictionary<string, string> words = new Dictionary<string, string>();
+
+    void Start()
+    {
+        words.Add("왼쪽", "left");
+        words.Add("오른쪽", "right");
+        words.Add("위", "up");
+        words.Add("아래", "down");
+        words.Add("멈춰", "stop");
+
+        Solution(words);
+    }
+
+    Dictionary<string, string> Solution(Dictionary<string, string> dic)
+    {
+        Dictionary<string, string> correct = new Dictionary<string, string>();
+
+        foreach (KeyValuePair <string, string> value in dic)
+        {
+            correct.Add(value.Value, value.Key);
+        }
+
+        foreach (KeyValuePair <string, string> value in correct)
+        {
+            Debug.Log(value.Key + ", " + value.Value);
+        }
+
+        return correct;
+    }
+}
