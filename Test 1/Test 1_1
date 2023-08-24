@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam1 : MonoBehaviour
+{
+    // 변수 a에 초기값, 변수 b에 공비를 저장한 후, 등비수열 10항을 출력한다.
+
+    void Start()
+    {
+        Solution(2, 3);
+        Solution(4, 2);
+    }
+
+    int[] Solution(int num1, int num2)
+    {
+        int[] number = new int[10];
+        int multiple = num1 * num2;
+        
+        for (int i = 0; i < 10; i++)
+        {
+            if (i != 0)
+            {
+                multiple *= num2;
+            }
+
+            number[i] = multiple;
+            Debug.Log(number[i]);
+        }
+
+        return number;
+    }
+}
