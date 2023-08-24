@@ -1,0 +1,70 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam9 : MonoBehaviour
+{
+    // 3x3 크기의 2차원 배열 2개를 만들어 정수를 저장한다. 각 배열을 3x3 형렬이라 생각하고 행렬의 합과 곱을 계산하되, 반드시 for 문을 사용한다.
+
+    int[,] a = { 
+        { 1, 2, 3 }, 
+        { 4, 5, 6 }, 
+        { 3, 4, 5 } 
+    };
+
+    int[,] b = {
+        { 4, 3, 2 },
+        { 2, 1, 3 },
+        { 3, 4, 5 }
+    };
+
+    int[,] c = new int[3, 3]; // 합을 저장할 행렬
+    int[,] d = new int[3, 3]; // 곱을 저장할 행렬
+
+    int size = 3;
+
+    void Start()
+    {
+        Solution();
+    }
+
+    void Solution()
+    {
+        // 행렬의 합
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                c[i, j] = a[i, j] + b[i, j];
+            }
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                Debug.Log("c의 " + i + ", " + j + " = " + c[i, j]);
+            }
+        }
+
+        // 행렬의 곱
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                for (int k = 0; k < size; k++)
+                {
+                    d[i, j] += a[i, k] * b[k, j]; // 행렬의 곱의 규칙을 이용한다.
+                }
+            }
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                Debug.Log("d의 " + i + ", " + j + " = " + d[i, j]);
+            }
+        }
+    }
+}
