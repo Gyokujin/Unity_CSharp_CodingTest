@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam4 : MonoBehaviour
+{
+    // 5x5 크기의 bool 2차원 배열을 만든다. a[i, j]라고 했을때, i가 더 클때는 true, j가 더 클때는 false를 넣어 배열을 채운다.
+
+    bool[,] numbers = new bool[5, 5];
+
+    void Start()
+    {
+        Solution(numbers);
+    }
+
+    bool[,] Solution(bool[,] num)
+    {
+        bool[,] vowel = new bool[5, 5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (i > j)
+                {
+                    vowel[i, j] = true;
+                }
+                else if (i < j)
+                {
+                    vowel[i, j] = false;
+                }
+                else
+                {
+                    vowel[i, j] = num[i, j]; // i와 j가 같은 경우는 기존의 배열의 값을 유지한다.
+                }
+
+                Debug.Log(i + ", " + j + " = " + vowel[i, j]);
+            }
+        }
+
+        return vowel;
+    }
+}
