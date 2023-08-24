@@ -19,7 +19,6 @@ public class Test22 : MonoBehaviour
     int Solution(int[] numbers)
     {
         int count = numbers.Length / 2;
-
         int answer = numbers[count];
 
         print(answer);
