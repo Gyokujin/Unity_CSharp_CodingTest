@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam10 : MonoBehaviour
+{
+    // 1차원 정수 배열에 수를 채운다. 그 수를 작은 수부터 큰 수 순서로 정렬한다.
+    int[] a = { 7, 9, 10, 14, 1, 54, 8, 3, 44, 2 };
+
+    void Start()
+    {
+        Solution(a);
+    }
+
+    int[] Solution(int[] numbers)
+    {
+        int[] b = new int[10];
+
+        for (int i = 0; i < numbers.Length - 1; i++)
+        {
+            for (int j = i + 1; j < numbers.Length; j++)
+            {
+                if (numbers[i] > numbers[j])
+                {
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+        }
+
+        for (int k = 0; k < numbers.Length; k++)
+        {
+            b[k] = numbers[k];
+            Debug.Log(b[k]);
+        }
+
+        return b;
+    }
+}
