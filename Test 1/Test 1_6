@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Exam6 : MonoBehaviour
+{
+    // [몬스터이름:경험치숫자]로 이루어진 Dictionary를 만들어 원하는 수의 데이터를 넣는다. 모든 몬스터의 경험치의 평균을 출력한다.
+
+    Dictionary<string, int> monster = new Dictionary<string, int>();
+    
+    void Start()
+    {
+        monster.Add("Chicken", 5);
+        monster.Add("Ghost", 80);
+        monster.Add("Goblin", 100);
+        monster.Add("Dark Knight", 300);
+        monster.Add("Dragon", 1000);
+
+        Solution(monster);
+    }
+
+    int Solution(Dictionary<string, int> dic)
+    {
+        int answer = 0;
+        int total = 0;
+
+        foreach (KeyValuePair<string, int> key in dic)
+        {
+            Debug.Log(key.Key + ": " + key.Value);
+            total += key.Value;
+        }
+
+        answer = total / dic.Count;
+
+        Debug.Log(answer);
+        return answer;
+    }
+}
