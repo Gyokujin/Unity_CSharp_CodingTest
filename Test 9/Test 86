@@ -1,0 +1,140 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test69 : MonoBehaviour
+{
+    // 1부터 6까지 숫자가 적힌 주사위가 네 개 있습니다. 네 주사위를 굴렸을 때 나온 숫자에 따라 다음과 같은 점수를 얻습니다.
+    // 네 주사위에서 나온 숫자가 모두 p로 같다면 1111 × p점을 얻습니다. 
+    // 세 주사위에서 나온 숫자가 p로 같고 나머지 다른 주사위에서 나온 숫자가 q(p ≠ q)라면(10 × p + q)(10 × p + q) 점을 얻습니다.
+    // 주사위가 두 개씩 같은 값이 나오고, 나온 숫자를 각각 p, q(p ≠ q)라고 한다면(p + q) × |p - q|점을 얻습니다.
+    // 어느 두 주사위에서 나온 숫자가 p로 같고 나머지 두 주사위에서 나온 숫자가 각각 p와 다른 q, r(q ≠ r)이라면 q × r점을 얻습니다.
+    // 네 주사위에 적힌 숫자가 모두 다르다면 나온 숫자 중 가장 작은 숫자 만큼의 점수를 얻습니다.
+    // 네 주사위를 굴렸을 때 나온 숫자가 정수 매개변수 a, b, c, d로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
+
+    void Start()
+    {
+        Solution(2, 2, 2, 2);
+        Solution(4, 1, 4, 4);
+        Solution(6, 3, 3, 6);
+        Solution(2, 5, 2, 6);
+        Solution(6, 4, 2, 5);
+    }
+
+    int Solution(int a, int b, int c, int d)
+    {
+        int correct = 0;
+
+        if (a == b && a == c && a == d) // 모두 같다면 1111 × p
+        {
+            correct = 1111 * a;
+        }
+        // 세 주사위의 값이 같을때 (10 × p + q)(10 × p + q)
+        else if (b == c && b == d && b != a) // a bcd
+        {
+            correct = (10 * b + a) * (10 * b + a);
+        }
+        else if (a == c && a == d && a != b) // acd b
+        {
+            correct = (10 * a + b) * (10 * a + b);
+        }
+        else if(a == b && a == d && a != c) // abd c
+        {
+            correct = (10 * a + c) * (10 * a + c);
+        }
+        else if (a == b && a == c && a != d) // abc d
+        {
+            correct = (10 * a + d) * (10 * a + d);
+        }
+        // 두 주사위가 같을 때 (q × r)와 두 주사위끼리 짝지어서 같을 때 (p + q) × |p - q|
+        else if (a == b)
+        {
+            if (c == d)
+            {
+                correct = (a + c) * Mathf.Abs(a - c);
+            }
+            else
+            {
+                correct = c * d;
+            }
+        }
+        else if (a == c)
+        {
+            if (b == d)
+            {
+                correct = (a + b) * Mathf.Abs(a - b);
+            }
+            else
+            {
+                correct = b * d;
+            }
+        }
+        else if (a == d)
+        {
+            if (b == c)
+            {
+                correct = (a + b) * Mathf.Abs(a - b);
+            }
+            else
+            {
+                correct = b * c;
+            }
+        }
+        else if (b == c)
+        {
+            if (a == d)
+            {
+                correct = (a + b) * Mathf.Abs(a - b);
+            }
+            else
+            {
+                correct = a * d;
+            }
+        }
+        else if (b == d)
+        {
+            if (a == c)
+            {
+                correct = (a + b) * Mathf.Abs(a - b);
+            }
+            else
+            {
+                correct = a * c;
+            }
+        }
+        else if (c == d)
+        {
+            if (a == b)
+            {
+                correct = (a + c) * Mathf.Abs(a - c);
+            }
+            else
+            {
+                correct = a * b;
+            }
+        }
+        // 모든 값이 다를 때
+        else
+        {
+            if (a < b && a < c && a < d) // a가 가장 작을 때
+            {
+                correct = a;
+            }
+            else if (a > b && b < c && b < d) // b가 가장 작을 때
+            {
+                correct = b;
+            }
+            else if(a > c && b > c && c < d) // c가 가장 작을 때
+            {
+                correct = c;
+            }
+            else if(a > d && b > d && c > d) // d가 가장 작을 때
+            {
+                correct = d;
+            }
+        }
+
+        Debug.Log(correct);
+        return (correct);
+    }
+}
