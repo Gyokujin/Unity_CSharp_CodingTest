@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test56 : MonoBehaviour
+{
+    // 정수가 담긴 리스트 num_list가 주어집니다. num_list의 홀수만 순서대로 이어 붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(3, 4, 5, 2, 1);
+        Solution(5, 7, 8, 3);
+        Solution(8, 10, 11, 15);
+    }
+
+    int Solution(params int[] num_list)
+    {
+        int correct = 0;
+        string oddNum = "";
+        string evenNum = "";
+
+        foreach (int num in num_list)
+        {
+            if (num % 2 != 0) // 홀수
+            {
+                oddNum += num.ToString();
+            }
+            else // 짝수
+            {
+                evenNum += num.ToString();
+            }
+        }
+
+        correct = int.Parse(oddNum) + int.Parse(evenNum);
+
+        Debug.Log(correct);
+        return correct;
+    }
+}
