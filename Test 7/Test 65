@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test4 : MonoBehaviour
+{
+    // 1보다 큰 수를 변수 a와 b에 각각 넣고 a에 b를 몇번 곱하면 1000을 넘는지 알아내는 프로그램
+    
+    int num1 = 7;
+    int num2 = 10;
+    int num3 = 12;
+    int num4 = 3;
+    int num5 = 4;
+
+    void Start()
+    {
+        Solution(num1, num2);
+        Solution(num3, num4);
+        Solution(num4, num5);
+    }
+
+    int Solution(int a, int b)
+    {
+        int value = a * b;
+        int count = 1;
+
+        while (value < 1000)
+        {
+            value *= b;
+            count++;
+        }
+
+        Debug.Log(count + "번 곱해야 한다.");
+        return count;
+    }
+}
