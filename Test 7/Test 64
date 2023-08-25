@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test3 : MonoBehaviour
+{
+    // 문자열 변수에 연산기호 "+", "-", "*", "/" 중 하나를 넣고 숫자 변수에 두개의 수를 넣는다. 연산 기호에 따라 두 수를 계산해서 결과를 출력하는 프로그램
+    
+    string word1 = "*";
+    int num1 = 9;
+    int num2 = 12;
+
+    string word2 = "-";
+    int num3 = 67;
+    int num4 = 14;
+
+    void Start()
+    {
+        Solution(word1, num1, num2);
+        Solution(word2, num3, num4);
+    }
+
+    int Solution(string sign, int a, int b)
+    {
+        int answer = 0;
+
+        switch (sign)
+        {
+            case "+":
+                answer = a + b;
+                break;
+            case "-":
+                answer = a - b;
+                break;
+            case "*":
+                answer = a * b;
+                break;
+            case "/":
+                answer = a / b;
+                break;
+        }
+
+        Debug.Log(answer);
+        return answer;
+    }
+}
