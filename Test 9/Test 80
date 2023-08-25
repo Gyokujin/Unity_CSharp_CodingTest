@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test63 : MonoBehaviour
+{
+    // 정수 배열 arr와 2차원 정수 배열 queries이 주어집니다. queries의 원소는 각각 하나의 query를 나타내며, [s, e, k] 꼴입니다. 각 query마다 순서대로 s ≤ i ≤ e인 모든 i에 대해 i가 k의 배수이면 arr[i]에 1을 더합니다.
+    // 위 규칙에 따라 queries를 처리한 이후의 arr를 return 하는 solution 함수를 완성해 주세요.
+
+    int[] arrange1 = { 0, 1, 2, 4, 3 };
+    int[,] que1 = { { 0, 4, 1 }, { 0, 3, 2 }, { 0, 3, 3 } };
+
+    void Start()
+    {
+        Solution(arrange1, que1);
+    }
+
+    int[] Solution(int[] arr, int[,] queries)
+    {
+        int column = queries.Length / 3;
+        int[] correct = arr;
+
+        for (int i = 0; i < column; i++)
+        {
+            int s = queries[i, 0];
+            int e = queries[i, 1];
+            int k = queries[i, 2];
+
+            for (int j = 0; j < arr.Length; j++)
+            {
+                if (s <= j && j <= e && j % k == 0)
+                {
+                    correct[j] += 1;
+                }
+            }
+        }
+
+        foreach (int n in correct)
+        {
+            Debug.Log(n);
+        }
+
+        return correct;
+    }
+}
