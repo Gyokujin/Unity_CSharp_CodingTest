@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Test1 : MonoBehaviour
 {
-    // ¼ýÀÚ¸¦ º¯¼ö¿¡ ³Ö°í, ±× ¼ö°¡ ¾ç¼öÀÎÁö, À½¼öÀÎÁö, 0ÀÎÁö Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+    // ìˆ«ìžë¥¼ ë³€ìˆ˜ì— ë„£ê³ , ê·¸ ìˆ˜ê°€ ì–‘ìˆ˜ì¸ì§€, ìŒìˆ˜ì¸ì§€, 0ì¸ì§€ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ëž¨
 
     int num1 = 15;
     int num2 = -48;
@@ -23,11 +23,11 @@ public class Test1 : MonoBehaviour
 
         if (num > 0)
         {
-            answer = "¾ç¼ö";
+            answer = "ì–‘ìˆ˜";
         }
         else if (num < 0)
         {
-            answer = "À½¼ö";
+            answer = "ìŒìˆ˜";
         }
         else
         {
