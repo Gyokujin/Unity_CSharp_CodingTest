@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test59 : MonoBehaviour
+{
+    // 정수 리스트 num_list가 주어질 때, 마지막 원소가 그전 원소보다 크면 마지막 원소에서 그전 원소를 뺀 값을 마지막 원소가 그전 원소보다 크지 않다면 마지막 원소를 두 배한 값을 추가하여 return하도록 solution 함수를 완성해주세요.
+
+    List<int> numbers1 = new List<int> { 2, 1, 6 };
+    List<int> numbers2 = new List<int> { 5, 2, 1, 7, 5 };
+
+    void Start()
+    {
+        Solution(numbers1);
+        Solution(numbers2);
+    }
+
+    List<int> Solution(List<int> num_list) 
+    {
+        List<int> correct = num_list;
+        int lastNum = num_list[num_list.Count - 1]; // 리스트의 가장 마지막 원소를 저장한다.
+        int compareNum = num_list[num_list.Count - 2]; // 마지막 원소와 비교할 원소
+
+        correct.Add(lastNum > compareNum ? lastNum - compareNum : lastNum * 2);
+        
+        foreach (int n in correct)
+        {
+            Debug.Log(n);
+        }
+
+        return correct;
+    }
+}
