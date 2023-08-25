@@ -1,0 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test65 : MonoBehaviour
+{
+    // 정수 l과 r이 주어졌을 때, l 이상 r이하의 정수 중에서 숫자 "0"과 "5"로만 이루어진 모든 정수를 오름차순으로 저장한 배열을 return 하는 solution 함수를 완성해 주세요. 만약 그러한 정수가 없다면, -1이 담긴 배열을 return 합니다.
+
+    void Start()
+    {
+        Solution(5, 555);
+        Solution(10, 20);
+    }
+
+    int[] Solution(int l, int r)
+    {
+        int count = 0;
+        List<int> numbers = new List<int>();
+
+        for (int i = l; i <= r; i++)
+        {
+            int length = i.ToString().Length; // 정수의 자리수
+            int averageNum = 1; // 나눌값
+            bool safeNum = false;
+
+            for (int j = 0; j < length; j++)
+            {
+                int num = (i / averageNum) % 10;
+
+                if (num == 0 || num == 5)
+                {
+                    safeNum = true;
+                    averageNum *= 10;
+                }
+                else
+                {
+                    safeNum = false;
+                    break;
+                }
+            }
+
+            if (safeNum)
+            {
+                numbers.Add(i);
+                count++;
+            }
+        }
+
+        if (count == 0)
+        {
+            int[] correct = new int[1] { -1 };
+
+            foreach (int n in correct)
+            {
+                Debug.Log(n);
+            }
+
+            return correct;
+        }
+        else
+        {
+            int[] correct = new int[count];
+            count = 0;
+
+            foreach (int n in numbers)
+            {
+                correct[count] = n;
+                count++;
+            }
+
+            foreach (int n in correct)
+            {
+                Debug.Log(n);
+            }
+
+            return correct;
+        }
+    }
+}
