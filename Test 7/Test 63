@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test2 : MonoBehaviour
+{
+    // 연도를 변수에 넣고, 그 년도가 윤년인지 아닌지 계산해서 출력하는 프로그램
+
+    int num1 = 9;
+    int num2 = 376;
+    int num3 = 4183;
+    int num4 = 9472;
+    int num5 = 2400;
+
+    void Start()
+    {
+        Solution(num1);
+        Solution(num2);
+        Solution(num3);
+        Solution(num4);
+        Solution(num5);
+    }
+
+    bool Solution(int num)
+    {
+        bool answer = false;
+
+        if (num % 400 == 0)
+        {
+            Debug.Log(num + "년은 윤년입니다.");
+        }
+        else if (num % 100 == 0)
+        {
+            Debug.Log(num + "년은 윤년이 아닙니다.");
+        }
+        else if (num % 4 == 0)
+        {
+            Debug.Log(num + "년은 윤년입니다.");
+        }
+        else
+        {
+            Debug.Log(num + "년은 윤년이 아닙니다.");
+        }
+
+        return answer;
+    }
+}
