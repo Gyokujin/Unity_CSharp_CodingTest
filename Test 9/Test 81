@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Test64 : MonoBehaviour
+{
+    // 정수 start와 end가 주어질 때, start부터 end까지의 숫자를 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+    
+    void Start()
+    {
+        Solution(3, 10);
+    }
+
+    int[] Solution(int start, int end)
+    {
+        int[] correct = new int[end - start + 1];
+        int count = 0;
+
+        for (int i = start; i <= end; i++)
+        {
+            correct[count] = i;
+            count++;
+        }
+        
+        foreach (int n in correct)
+        {
+            Debug.Log(n);
+        }
+
+        return correct;
+    }
+}
